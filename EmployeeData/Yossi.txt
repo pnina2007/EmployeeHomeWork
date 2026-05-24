@@ -1,1 +1,1 @@
-{"name":"Yossi","age":31,"job":"Developer"}
+{"name":"Yossi","age":31,"job":"Developer","salary":10000}

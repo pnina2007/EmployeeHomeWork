@@ -7,9 +7,12 @@ const emp1 = new Employee('Shira', 21, 'Manager');
 const emp2 = new Employee('Yossi', 31, 'Developer');
 const emp3 = new Employee('Noa', 28, 'Designer');
 
+ emp2.salary = 10000;
+ 
 console.log(emp1);
 console.log(emp2);
 console.log(emp3);
+
 
 fs.mkdirSync('EmployeeData', { recursive: true });     //אם התקייה כבר קיימת לא עושה כלום
 
@@ -21,6 +24,8 @@ fs.writeFileSync(
   JSON.stringify(emp1)
 );
 
+
+ 
 //בצורה אסינכרונית עם CALLBACK
 fs.writeFile(
   path.join('EmployeeData', 'Yossi.txt'),
@@ -35,7 +40,7 @@ fs.writeFile(
 const saveEmployeeAsync = (employee, fileName) => {
   return new Promise((resolve, reject) => {
 
-    const data = JSON.stringify(employee);
+    const data = JSON.stringify(employee);  //הופך את האובייקט למחרוזת
 
     fs.writeFile(path.join('EmployeeData', fileName), data, (err) => {
       if (err) {
@@ -52,3 +57,5 @@ const saveEmployeeAsync = (employee, fileName) => {
 saveEmployeeAsync(emp3, 'Noa.txt')
   .then(msg => console.log(msg))
   .catch(err => console.log('error:', err));
+
+ 
