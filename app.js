@@ -8,7 +8,7 @@ const emp2 = new Employee('Yossi', 31, 'Developer');
 const emp3 = new Employee('Noa', 28, 'Designer');
 
  emp2.salary = 10000;
- 
+
 console.log(emp1);
 console.log(emp2);
 console.log(emp3);
@@ -58,4 +58,7 @@ saveEmployeeAsync(emp3, 'Noa.txt')
   .then(msg => console.log(msg))
   .catch(err => console.log('error:', err));
 
- 
+  
+const files = fs.readdirSync('EmployeeData');
+console.log('Files in EmployeeData:');
+console.log(files);
